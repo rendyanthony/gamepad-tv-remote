@@ -13,7 +13,6 @@ Press the PS button on your Dualshock 4 controller to connect to the Raspberry P
 
 Long press the PS button (4 seconds) to disconnect the controller. If you are using a Bravia TV it would be turned off automatically.
 
-
 ### Key Mapping
 
 The default mapping is based on the Dualshock 4 controller.
@@ -34,7 +33,7 @@ The default mapping is based on the Dualshock 4 controller.
 
 ## Raspberry Pi Setup
 
-1.  Download and write Raspbian Lite into an SD card. Make sure to enable WiFi and SSH.
+1.  Download and write Raspbian Lite into an SD card. Make sure to enable WiFi and SSH. Insert the SD card into the Raspberry Pi and power it up. The following steps/commands should be done on the Raspberry Pi.
 
 2.  Add `dtoverlay=dwc2` into `/boot/config.txt`.
 
@@ -59,12 +58,18 @@ sudo apt install python3-pyudev python3-evdev hidrd
 
 ```bash
 git clone https://github.com/rendyanthony/gamepad-tv-remote.git
-sudo gamepad-tv-remote/setup.ssh
+sudo gamepad-tv-remote/setup.sh
+```
+
+6.  Add the following line to `/etc/rc.local` before the `exit 0` line:
+
+```
+/opt/pi-key-remote/create_keyboard.sh
 ```
 
 6.  Pair your bluetooth gampepad to the Raspberry Pi (see the guide below)
 
-7.  Shutdown your Raspberry Pi and plug it into the TV's USB port
+7.  Shutdown your Raspberry Pi and plug it into the TV's USB port (if you haven't)
 
 ```bash
 sudo shutdown now

@@ -11,6 +11,10 @@ cp -R $SCRIPT_DIR/descriptors $SCRIPT_DIR/gamepad $SCRIPT_DIR/tv $SCRIPT_DIR/*.p
 
 # apt-get install python3-evdev python3-pyudev
 
+for xml_file in $SCRIPT_DIR/descriptors/*xml; do
+    hidrd-convert -i xml -o natv $xml_file ${xml_file%.*}.bin
+done
+
 sed "s#/home/pi/#$TARGET#" $TARGET/gamepad.service > /etc/systemd/system/gamepad.service
 systemctl enable gamepad.service
 systemctl restart gamepad.service
