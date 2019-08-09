@@ -37,26 +37,7 @@ The default mapping is based on the Dualshock 4 controller.
 
 1.  Download and write Raspbian Lite into an SD card. Make sure to enable WiFi and SSH. Insert the SD card into the Raspberry Pi and power it up. The following steps/commands should be done on the Raspberry Pi.
 
-2.  Add `dtoverlay=dwc2` into `/boot/config.txt`.
-
-```bash 
-echo "dtoverlay=dwc2" | sudo tee -a /boot/config.txt
-```
-
-3.  Add `dwc2` and `libcomposite` into `/etc/modules`.
-
-```bash
-echo "dwc2" | sudo tee -a /etc/modules
-echo "libcomposite" | sudo tee -a /etc/modules
-```
-
-4.  Install packages dependencies.
-
-```bash
-sudo apt install python3-pyudev python3-evdev hidrd
-```
-
-5.  Install the code.
+2.  Install the code.
 
 ```bash
 git clone https://github.com/rendyanthony/gamepad-tv-remote.git
@@ -64,15 +45,15 @@ cd gamepad-tv-remote
 sudo ./setup.sh
 ```
 
-6.  Add the following line to `/etc/rc.local` before the `exit 0` line:
+3.  Add the following line to `/etc/rc.local` before the `exit 0` line:
 
 ```
 /opt/pi-key-remote/create_keyboard.sh
 ```
 
-6.  Pair your bluetooth gampepad to the Raspberry Pi (see the guide below)
+4.  Pair your bluetooth gampepad to the Raspberry Pi (see the guide below)
 
-7.  Shutdown your Raspberry Pi and plug it into the TV's USB port (if you haven't)
+5.  Shutdown your Raspberry Pi and plug it into the TV's USB port (if you haven't)
 
 ```bash
 sudo shutdown now

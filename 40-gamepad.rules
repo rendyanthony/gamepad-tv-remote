@@ -1,1 +1,0 @@
-ACTION=="add", SUBSYSTEMS=="input", RUN+="/bin/systemctl start gamepad.service"
