@@ -87,19 +87,19 @@ scan on
 5.  The MAC address of the controller should show up on the command line. It should look something like this. Write down the address as we will use them in the subsequent commands.
 
 ```
-[NEW] Device 00:01:6C:B4:06:7E Wireless Controller
+[NEW] Device 90:FB:A6:BE:74:59 Wireless Controller
 ```
 
 6.  Type `connect` follwed with the MAC address that you got from the previous step. The LED on the Dualshock 4 should turn blue.
 
 ```
-connect 00:01:6C:B4:06:7E
+connect 90:FB:A6:BE:74:59
 ```
 
 7. Type `trust` followed with the MAC address to add the controller to the trusted list. This will allow the controller to automatically connect to your Raspberry Pi
 
 ```
-trust 00:01:6C:B4:06:7E
+trust 90:FB:A6:BE:74:59
 ```
 
 8.  We are now done. You can quit the tool either by pressing `Ctrl+D` or typing `quit`.
