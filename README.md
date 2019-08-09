@@ -8,6 +8,8 @@ Turn your bluetooth gamepad as a TV remote control using a Raspberry Pi.
 
 The Raspberry Pi Zero W is plugged in to the TV's USB port and emulates a USB keyboard device. Button presses from the gamepad is translated into keyboard presses to the TV.
 
+![Overview Diagram](docs/overview.png)
+
 ## Usage 
 Press the PS button on your Dualshock 4 controller to connect to the Raspberry Pi. The LED on the controller will turn green once it is recognized by the application. If you are using a Bravia TV it should turn on automatically.
 
