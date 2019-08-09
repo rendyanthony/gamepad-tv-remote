@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(readlink -f $(dirname  $0))
+
 # Create gadget
 mkdir /sys/kernel/config/usb_gadget/keyboard
 cd /sys/kernel/config/usb_gadget/keyboard
@@ -28,14 +30,14 @@ mkdir -p functions/hid.usb0
 echo 1 > functions/hid.usb0/protocol
 echo 1 > functions/hid.usb0/subclass
 echo 8 > functions/hid.usb0/report_length  # 8-byte reports
-cat /opt/pi-key-remote/descriptors/keyboard.bin > functions/hid.usb0/report_desc
+cat $SCRIPT_DIR/descriptors/keyboard.bin > functions/hid.usb0/report_desc
 
 # Mouse (8 Buttons, X, Y, Wheel -> 4 Bytes)
 mkdir -p functions/hid.usb1
 echo 2 > functions/hid.usb1/protocol
-echo 1 > functions/hid.usb0/subclass
+echo 1 > functions/hid.usb1/subclass
 echo 4 > functions/hid.usb1/report_length
-cat /opt/pi-key-remote/descriptors/mouse.bin > functions/hid.usb1/report_desc
+cat $SCRIPT_DIR/descriptors/mouse.bin > functions/hid.usb1/report_desc
 
 # Create configuration
 mkdir configs/c.1
