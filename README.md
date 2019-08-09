@@ -34,7 +34,7 @@ The default mapping is based on the Dualshock 4 controller.
 
 ## Raspberry Pi Setup
 
-1.  Download and write Raspbian Lite into an SD card.
+1.  Download and write Raspbian Lite into an SD card. Make sure to enable WiFi and SSH.
 
 2.  Add `dtoverlay=dwc2` into `/boot/config.txt`.
 
