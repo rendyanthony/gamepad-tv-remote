@@ -58,7 +58,8 @@ sudo apt install python3-pyudev python3-evdev hidrd
 
 ```bash
 git clone https://github.com/rendyanthony/gamepad-tv-remote.git
-sudo gamepad-tv-remote/setup.sh
+cd gamepad-tv-remote
+sudo ./setup.sh
 ```
 
 6.  Add the following line to `/etc/rc.local` before the `exit 0` line:
@@ -98,7 +99,7 @@ default-agent
 scan on
 ```
 
-4.  Enter bluetooth pairing mode. On the Dualshock 4, press both the share and PS button on your Dualshock 4 controller at the same time to enter pairing mode. The LED on the Dualshock 4 will start flashing.
+4.  Set the gamepad into bluetooth pairing mode. On the Dualshock 4, press both the share and PS button on your Dualshock 4 controller at the same time to enter pairing mode. The LED on the Dualshock 4 will start flashing.
 
 5.  The MAC address of the controller should show up on the command line. It should look something like this. Write down the address as we will use them in the subsequent commands.
 
