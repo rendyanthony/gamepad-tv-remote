@@ -1,6 +1,6 @@
 # Gamepad TV Remote
 
-Use a bluetooth gamepad as a TV remote control.
+Turn your bluetooth gamepad as a TV remote control using a Raspberry Pi.
 
 > **Warning**: This project requires a Raspberry Pi Zero W board. It doesn't work with a Raspberry Pi 3 or 4 boards as it requires the Raspberry Pi to use USB gadget mode.
 
@@ -10,11 +10,14 @@ The Raspberry Pi Zero W is plugged in to the TV's USB port and emulates a USB ke
 
 ## Key Mapping
 
-| Key               | Maps To                  | Remarks                   |
+The default mapping is based on the Dualshock 4 controller.
+
+| Gamepad Key       | Maps To                  | Remarks                   |
 |-------------------|--------------------------|---------------------------|
 | D-Pad             | Arrow Keys               |                           |
 | Options/Start     | Alt+Enter                | Android Home button       |
-| X-Button          | Enter                    |                           |
+| Share/Select      | -                        | Long press to lock/unlock |
+| X Button          | Enter                    |                           |
 | Circle Button     | Escape                   | Android Back button       |
 | Square Button     | Media Play/Pause         |                           |
 | Triangle Button   | Backspace                |                           |
