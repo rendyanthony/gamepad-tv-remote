@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<descriptor xmlns="http://digimend.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://digimend.sourceforge.net hidrd.xsd">
+  <usage_page>desktop<!-- Generic desktop controls (01h) --></usage_page>
+  <usage>desktop_keyboard<!-- Keyboard (06h, application collection) --></usage>
+  <COLLECTION type="application">
+    <usage_page>keyboard<!-- Keyboard/keypad (07h) --></usage_page>
+    <usage_minimum>keyboard_kb_leftcontrol<!-- Keyboard left control (E0h, dynamic value) --></usage_minimum>
+    <usage_maximum>keyboard_kb_right_gui<!-- Keyboard right GUI (E7h, dynamic value) --></usage_maximum>
+    <logical_minimum>0</logical_minimum>
+    <logical_maximum>1</logical_maximum>
+    <report_size>1</report_size>
+    <report_count>8</report_count>
+    <input>
+      <variable/>
+    </input>
+
+    <usage_page>consumer<!-- Consumer (0Ch) --></usage_page>
+    <usage>B5</usage> <!-- Scan Next Track -->
+    <usage>B6</usage> <!-- Scan Previous Track -->
+    <usage>B7</usage> <!-- Stop -->
+    <usage>B8</usage> <!-- Eject -->
+    <usage>CD</usage> <!-- Play/Pause -->
+    <usage>E2</usage> <!-- Mute -->
+    <usage>E9</usage> <!-- Volume Increment -->
+    <usage>EA</usage> <!-- Volume Decrement -->
+    <report_size>1</report_size>
+    <report_count>8</report_count>
+    <input>
+      <variable/>
+    </input>
+
+    <report_size>1</report_size>
+    <report_count>3</report_count>
+    <usage_page>led<!-- LEDs (08h) --></usage_page>
+    <usage_minimum>01</usage_minimum>
+    <usage_maximum>03</usage_maximum>
+    <output>
+      <variable/>
+    </output>
+  
+    <report_size>1</report_size>
+    <report_count>5</report_count>
+    <output>
+      <constant/>
+    </output>
+
+    <report_size>8</report_size>
+    <report_count>6</report_count>
+    <logical_minimum>0</logical_minimum>
+    <logical_maximum>255</logical_maximum>
+    <usage_page>keyboard<!-- Keyboard/keypad (07h) --></usage_page>
+    <usage_minimum>keyboard_none<!-- No event (00h, selector) --></usage_minimum>
+    <usage_maximum>FF</usage_maximum>
+    <input/>
+  </COLLECTION>
+</descriptor>
