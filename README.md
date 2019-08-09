@@ -12,19 +12,19 @@ The Raspberry Pi Zero W is plugged in to the TV's USB port and emulates a USB ke
 
 The default mapping is based on the Dualshock 4 controller.
 
-| Gamepad Key       | Maps To                  | Remarks                   |
-|-------------------|--------------------------|---------------------------|
-| D-Pad             | Arrow Keys               |                           |
-| Options/Start     | Alt+Enter                | Android Home button       |
-| Share/Select      | -                        | Long press to lock/unlock |
-| X Button          | Enter                    |                           |
-| Circle Button     | Escape                   | Android Back button       |
-| Square Button     | Media Play/Pause         |                           |
-| Triangle Button   | Backspace                |                           |
-| R2+Up, R2+Down    | Volume up/down           |                           |
-| R2+Left, R2+Right | Prev/Next Media          |                           |
-| R2+Square         | Toggle Mute              |                           |
-| PS Button/Mode    | Turn TV on/off           | Uses Sony Bravia REST API |
+| Gamepad Key       | Maps To                  | Remarks                   
+|-------------------|--------------------------|---------------------------
+| D-Pad             | Arrow Keys               |                           
+| Options/Start     | Alt+Enter                | Android Home button       
+| Share/Select      | -                        | Long press to lock/unlock 
+| X Button          | Enter                    |                           
+| Circle Button     | Escape                   | Android Back button       
+| Square Button     | Media Play/Pause         |                           
+| Triangle Button   | Backspace                |                           
+| R2+Up, R2+Down    | Volume up/down           |                           
+| R2+Left, R2+Right | Prev/Next Media          |                           
+| R2+Square         | Toggle Mute              |                           
+| PS Button/Mode    | Turn TV on/off           | Uses Bravia REST API
 
 ## Raspberry Pi Setup
 
@@ -47,6 +47,13 @@ echo "libcomposite" | sudo tee -a /etc/modules
 
 ```bash
 sudo apt install python3-pyudev python3-evdev hidrd
+```
+
+5.  Install the code.
+
+```bash
+git clone https://github.com/rendyanthony/gamepad-tv-remote.git
+sudo gamepad-tv-remote/setup.ssh
 ```
 
 ## 2. Pair the Gamepad via Bluetooth
