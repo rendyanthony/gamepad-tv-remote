@@ -51,9 +51,9 @@ class Application(object):
 
     def on_gamepad_connected(self, gamepad_obj):
         self._gamepad = gamepad_obj
-        self._gamepad_connected.set()
         self._last_activity_ts = time.time()
         self.set_lock_status(False)  # Make sure the gampead is unlocked
+        self._gamepad_connected.set()
 
         log.info(f"{self._gamepad} connected")
 
