@@ -9,6 +9,7 @@ class Bravia(object):
         self._url = url
         self._psk = auth_psk
         self._id = 1
+        self.sys_info = self.get_system_information()
 
     def _call(self, service, method, version="1.0", **params):
         import requests
@@ -31,6 +32,10 @@ class Bravia(object):
             raise Exception(r_json["error"])
 
         return r_json["result"]
+
+    def get_system_information(self):
+        result = self._call("system", "getSystemInformation")[0]
+        return result
 
     def get_power_status(self):
         result = self._call("system", "getPowerStatus")[0]
@@ -57,11 +62,9 @@ class Bravia(object):
     def set_content(self, uri):
         result = self._call("avContent", "setPlayContent", uri=uri)
         return result
-    
+
 
 if __name__ == '__main__':
-    import pprint
-
     tv = Bravia("http://192.168.1.2/sony", auth_psk="1234")
-    pprint.pprint(tv._call("system", "getPowerStatus"))
-    pprint.pprint(tv._call("audio", "getVolumeInformation"))
+    print(tv)
+    print("{product} {name} {model} ({generation}) serial: {serial}".format(**tv.sys_info))
