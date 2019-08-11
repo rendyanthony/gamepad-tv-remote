@@ -3,6 +3,7 @@
 import glob
 import os
 import subprocess
+import sys
 
 from string import Template
 
@@ -20,12 +21,13 @@ def install(appdir):
     }
 
     subprocess.check_output(
-        "apt-get install python3-evdev python3-pyudev hidrd")
+        "apt-get install python3-evdev python3-pyudev hidrd",
+        shell=True, stdout=sys.stdout)
 
     for xml_fn in glob.glob(os.path.join(appdir, "descriptors", "*.xml")):
         bin_fn = xml_fn.replace(".xml", ".bin")
         subprocess.check_output(
-            f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}")
+            f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}", shell=True, stdout=sys.stdout)
 
     required_modules = set(('dwc2', 'libcomposite'))
     with open('/etc/modules', 'r+') as fp:
@@ -37,7 +39,7 @@ def install(appdir):
         fp.write(apply_template('gamepad.service', **template_map))
 
     subprocess.check_output(
-        "systemctl enable gamepad.service")
+        "systemctl enable gamepad.service", shell=True, stdout=sys.stdout)
     
 
 if __name__ == '__main__':
