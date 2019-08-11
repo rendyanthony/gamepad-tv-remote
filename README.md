@@ -10,7 +10,7 @@ The Raspberry Pi Zero W is plugged in to the TV's USB port and emulates a USB ke
 
 ![Overview Diagram](docs/overview.png)
 
-Although the concept should work for other TV/gamepad models, the project was mainly created for my own personal use case. This means it is optimized for the devices that I have and how I prefer to use them.
+Although the concept should work for other TV/gamepad models, the project was mainly created for my own personal use cases. Which means the code is optimized for the devices that I own:
 
 1. TV: Sony Bravia KD-65X9000E (Android TV)
 2. Gamepad: Dualshock 4 (CUH-ZCT1)
@@ -63,6 +63,10 @@ sudo ./install.py
 ```bash
 sudo reboot now
 ```
+
+## Configuration
+
+The code does use any configuration files (yet). If you need to modify the behavior you would need to edit code in `main.py`.
 
 ## Pair the Gamepad via Bluetooth
 
