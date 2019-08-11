@@ -43,7 +43,9 @@ def install(appdir):
         fp.write(apply_template('gamepad.service', **template_map))
     call("systemctl enable gamepad.service", shell=True)
 
-    print(f"Please add '{appdir}/create_keyboard.sh' to `/etc/rc.local`")
+    with open('/etc/systemd/system/keyboard-device.service', 'w') as fp:
+        fp.write(apply_template('keyboard-device.service', **template_map))
+    call("systemctl enable keyboard-device.service", shell=True)
 
 
 if __name__ == '__main__':

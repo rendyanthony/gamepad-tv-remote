@@ -37,7 +37,7 @@ The default mapping is based on the Dualshock 4 controller.
 
 1.  Download and write Raspbian Lite into an SD card. Make sure to enable WiFi and SSH. Insert the SD card into the Raspberry Pi and power it up. The following steps/commands should be done on the Raspberry Pi.
 
-2. Install dependencies
+2. Install dependencies using `apt`.
 
 ```bash
 sudo apt install python3-evdev python3-pyudev hidrd
@@ -51,15 +51,9 @@ cd gamepad-tv-remote
 sudo ./install.py
 ```
 
-4.  Add the following line to `/etc/rc.local` before the `exit 0` line:
+4.  Pair your bluetooth gampepad to the Raspberry Pi (see the guide below)
 
-```
-/opt/pi-key-remote/create_keyboard.sh
-```
-
-5.  Pair your bluetooth gampepad to the Raspberry Pi (see the guide below)
-
-6.  Shutdown your Raspberry Pi and plug it into the TV's USB port (if you haven't)
+5.  Shutdown your Raspberry Pi and plug it into the TV's USB port (if you haven't)
 
 ```bash
 sudo shutdown now

@@ -1,0 +1,8 @@
+# /etc/systemd/system/keyboard-device.service
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=$appdir/create_keyboard.sh
+
+[Install]
+WantedBy=multi-user.target
