@@ -21,6 +21,12 @@ def install(appdir):
     }
 
     call("apt-get install -qq python3-evdev python3-pyudev hidrd", shell=True)
+    try:
+        import pyudev
+        import evdev
+    except ImportError as e:
+        print("Missing dependency", e)
+        raise
 
     for xml_fn in glob.glob(os.path.join(appdir, "descriptors", "*.xml")):
         bin_fn = xml_fn.replace(".xml", ".bin")
@@ -37,7 +43,11 @@ def install(appdir):
 
 
 if __name__ == '__main__':
-    print("Starting installation")
-    install(
-        os.path.abspath(os.path.dirname(__file__)))
-    print("Installation successful!")
+    print("Starting installation, this may take a while")
+    try:
+        install(
+            os.path.abspath(os.path.dirname(__file__)))
+        print("Installation successful!")
+    except:
+        print("Failed!")
+        
