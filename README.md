@@ -42,7 +42,7 @@ The default mapping is based on the Dualshock 4 controller.
 ```bash
 git clone https://github.com/rendyanthony/gamepad-tv-remote.git
 cd gamepad-tv-remote
-sudo ./setup.sh
+sudo ./install.py
 ```
 
 3.  Add the following line to `/etc/rc.local` before the `exit 0` line:

@@ -2,10 +2,10 @@
 
 import glob
 import os
-import subprocess
 import sys
 
 from string import Template
+from subprocess import call
 
 
 def apply_template(templ_fn, **kwargs):
@@ -20,28 +20,24 @@ def install(appdir):
         "user": "root"
     }
 
-    subprocess.check_output(
-        "apt-get install python3-evdev python3-pyudev hidrd",
-        shell=True, stdout=sys.stdout)
+    call("apt-get install -qq python3-evdev python3-pyudev hidrd", shell=True)
 
     for xml_fn in glob.glob(os.path.join(appdir, "descriptors", "*.xml")):
         bin_fn = xml_fn.replace(".xml", ".bin")
-        subprocess.check_output(
-            f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}", shell=True, stdout=sys.stdout)
+        call(f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}", shell=True)
 
-    required_modules = set(('dwc2', 'libcomposite'))
     with open('/etc/modules', 'r+') as fp:
         modules = set([line.strip() for line in fp.readlines() if not line.startswith('#')])
-        for module in (required_modules - modules):
-            fp.write(module+'\n')
+        for module in set(('dwc2', 'libcomposite')) - modules:
+            fp.write(f"{module}\n")
 
     with open('/etc/systemd/system/gamepad.service', 'w') as fp:
         fp.write(apply_template('gamepad.service', **template_map))
+    call("systemctl enable gamepad.service", shell=True)
 
-    subprocess.check_output(
-        "systemctl enable gamepad.service", shell=True, stdout=sys.stdout)
-    
 
 if __name__ == '__main__':
+    print("Starting installation")
     install(
         os.path.abspath(os.path.dirname(__file__)))
+    print("Installation successful!")
