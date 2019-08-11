@@ -24,7 +24,7 @@ def install(appdir):
         import pyudev
         import evdev
     except ImportError as e:
-        print("Missing dependency", e)
+        print(f"Error: Missing dependency '{e.name}''")
         raise
 
     for xml_fn in glob.glob(os.path.join(appdir, "descriptors", "*.xml")):
