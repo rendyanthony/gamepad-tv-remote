@@ -3,12 +3,12 @@ Description=Gamepad Service
 After=bluetooth.target
 
 [Service]
-ExecStart=/usr/bin/python3 -u /home/pi/main.py
-WorkingDirectory=/home/pi/
+ExecStart=/usr/bin/python3 -u $appdir/main.py
+WorkingDirectory=$appdir
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
-User=root
+User=$user
 
 [Install]
 WantedBy=multi-user.target
