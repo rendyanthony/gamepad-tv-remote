@@ -24,12 +24,15 @@ def install(appdir):
         import pyudev
         import evdev
     except ImportError as e:
-        print(f"Error: Missing dependency '{e.name}''")
+        print(f"Error: Missing dependency '{e.name}'")
         raise
 
     for xml_fn in glob.glob(os.path.join(appdir, "descriptors", "*.xml")):
         bin_fn = xml_fn.replace(".xml", ".bin")
-        call(f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}", shell=True)
+        ret = call(f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}", shell=True)
+        if ret != 0:
+            print(f"Error: Failed to run hidrd-convert")
+            raise Exception
 
     with open('/etc/modules', 'r+') as fp:
         modules = set([line.strip() for line in fp.readlines() if not line.startswith('#')])
@@ -39,6 +42,8 @@ def install(appdir):
     with open('/etc/systemd/system/gamepad.service', 'w') as fp:
         fp.write(apply_template('gamepad.service', **template_map))
     call("systemctl enable gamepad.service", shell=True)
+
+    print(f"Please add '{appdir}/create_keyboard.sh' to `/etc/rc.local`")
 
 
 if __name__ == '__main__':
