@@ -33,11 +33,11 @@ echo 8 > functions/hid.usb0/report_length  # 8-byte reports
 cat $SCRIPT_DIR/descriptors/keyboard.bin > functions/hid.usb0/report_desc
 
 # Mouse (8 Buttons, X, Y, Wheel -> 4 Bytes)
-mkdir -p functions/hid.usb1
-echo 2 > functions/hid.usb1/protocol
-echo 1 > functions/hid.usb1/subclass
-echo 4 > functions/hid.usb1/report_length
-cat $SCRIPT_DIR/descriptors/mouse.bin > functions/hid.usb1/report_desc
+# mkdir -p functions/hid.usb1
+# echo 2 > functions/hid.usb1/protocol
+# echo 1 > functions/hid.usb1/subclass
+# echo 4 > functions/hid.usb1/report_length
+# cat $SCRIPT_DIR/descriptors/mouse.bin > functions/hid.usb1/report_desc
 
 # Create configuration
 mkdir configs/c.1
@@ -49,7 +49,7 @@ echo "Example configuration" > configs/c.1/strings/0x409/configuration
 
 # Link HID function to configuration
 ln -s functions/hid.usb0 configs/c.1
-ln -s functions/hid.usb1 configs/c.1
+# ln -s functions/hid.usb1 configs/c.1
 
 # Enable gadget
 ls /sys/class/udc > UDC

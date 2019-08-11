@@ -20,6 +20,8 @@ def install(appdir):
         "user": "root"
     }
 
+    os.chdir(appdir)
+
     try:
         import pyudev
         import evdev
@@ -27,7 +29,7 @@ def install(appdir):
         print(f"Error: Missing dependency '{e.name}'")
         raise
 
-    for xml_fn in glob.glob(os.path.join(appdir, "descriptors", "*.xml")):
+    for xml_fn in glob.glob("descriptors/*.xml"):
         bin_fn = xml_fn.replace(".xml", ".bin")
         ret = call(f"hidrd-convert -i xml -o natv {xml_fn} {bin_fn}", shell=True)
         if ret != 0:
@@ -40,11 +42,11 @@ def install(appdir):
             fp.write(f"{module}\n")
 
     with open('/etc/systemd/system/gamepad.service', 'w') as fp:
-        fp.write(apply_template('gamepad.service', **template_map))
+        fp.write(apply_template('services/gamepad.service', **template_map))
     call("systemctl enable gamepad.service", shell=True)
 
     with open('/etc/systemd/system/keyboard-device.service', 'w') as fp:
-        fp.write(apply_template('keyboard-device.service', **template_map))
+        fp.write(apply_template('services/keyboard-device.service', **template_map))
     call("systemctl enable keyboard-device.service", shell=True)
 
 

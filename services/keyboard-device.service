@@ -2,7 +2,7 @@
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=$appdir/create_keyboard.sh
+ExecStart=$appdir/create-keyboard.sh
 
 [Install]
 WantedBy=multi-user.target
