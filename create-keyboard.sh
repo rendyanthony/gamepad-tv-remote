@@ -30,14 +30,14 @@ mkdir -p functions/hid.usb0
 echo 1 > functions/hid.usb0/protocol
 echo 1 > functions/hid.usb0/subclass
 echo 8 > functions/hid.usb0/report_length  # 8-byte reports
-cat $SCRIPT_DIR/descriptors/keyboard.bin > functions/hid.usb0/report_desc
+hidrd-convert -i xml -o natv $SCRIPT_DIR/descriptors/keyboard.xml functions/hid.usb0/report_desc
 
 # Mouse (8 Buttons, X, Y, Wheel -> 4 Bytes)
 # mkdir -p functions/hid.usb1
 # echo 2 > functions/hid.usb1/protocol
 # echo 1 > functions/hid.usb1/subclass
 # echo 4 > functions/hid.usb1/report_length
-# cat $SCRIPT_DIR/descriptors/mouse.bin > functions/hid.usb1/report_desc
+# hidrd-convert -i xml -o natv $SCRIPT_DIR/descriptors/mouse.xml functions/hid.usb1/report_desc
 
 # Create configuration
 mkdir configs/c.1
