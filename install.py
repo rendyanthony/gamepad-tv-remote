@@ -20,7 +20,6 @@ def install(appdir):
         "user": "root"
     }
 
-    call("apt-get install -qq python3-evdev python3-pyudev hidrd", shell=True)
     try:
         import pyudev
         import evdev
