@@ -10,6 +10,11 @@ The Raspberry Pi Zero W is plugged in to the TV's USB port and emulates a USB ke
 
 ![Overview Diagram](docs/overview.png)
 
+Although the concept should work for other TV/gamepad models, the project was mainly created for my own personal use case. This means it is optimized for the devices that I have and how I prefer to use them.
+
+1. TV: Sony Bravia KD-65X9000E (Android TV)
+2. Gamepad: Dualshock 4 (CUH-ZCT1)
+
 ## Usage 
 Press the PS button on your Dualshock 4 controller to connect to the Raspberry Pi. The LED on the controller will turn green once it is recognized by the application. If you are using a Bravia TV it should turn on automatically.
 
