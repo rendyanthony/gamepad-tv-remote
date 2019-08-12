@@ -49,11 +49,15 @@ def install(appdir):
 
 
 if __name__ == '__main__':
-    print("Starting installation, this may take a while")
+    if os.geteuid() != 0:
+        print("Error: you need to have root privileges to install!")
+        sys.exit(1)
     try:
+        print("Starting installation, this may take a while")
         install(
             os.path.abspath(os.path.dirname(__file__)))
         print("Installation successful!")
     except:
         print("Failed!")
+        sys.exit(2)
         
