@@ -115,7 +115,7 @@ trust 90:FB:A6:BE:74:59
 
 ## Useful Guides
 
-These are the online guides that I used while developing this project:
+These are the guides I used while developing this project:
 
 1. [Using RPi Zero as a Keyboard](https://www.rmedgar.com/blog/using-rpi-zero-as-keyboard-setup-and-device-definition)
 2. [Setting up PlayStation Controllers on the Raspberry Pi](https://pimylifeup.com/raspberry-pi-playstation-controllers/) &mdash; Pairing your PS4 Controller via BluetoothCTL
