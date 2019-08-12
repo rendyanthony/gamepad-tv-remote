@@ -70,7 +70,7 @@ The code does use any configuration files (yet). If you need to modify the behav
 
 ## Pair the Gamepad via Bluetooth
 
-Follow the guide below to pair your bluetooth controller with the Raspberry Pi. The following guide is based on the Dualshock 4 controller but it should not differ much for other blueooth controllers.
+Follow the guide below to pair your bluetooth controller with the Raspberry Pi. The following guide is based on the Dualshock 4 controller but it should not differ much for other bluetooth controllers.
 
 1.  Start the `bluetoothctl` tool on the Raspberry Pi
 
@@ -91,7 +91,7 @@ default-agent
 scan on
 ```
 
-4.  Set the gamepad into bluetooth pairing mode. On the Dualshock 4, press both the share and PS button on your Dualshock 4 controller at the same time to enter pairing mode. The LED on the Dualshock 4 will start flashing.
+4.  Set the gamepad into bluetooth pairing mode. On the Dualshock 4, press both the share and PS button at the same time to enter pairing mode. The LED on the Dualshock 4 will start flashing.
 
 5.  The MAC address of the controller should show up on the command line. It should look something like this. Write down the address as we will use them in the subsequent commands.
 
@@ -112,3 +112,12 @@ trust 90:FB:A6:BE:74:59
 ```
 
 8.  We are now done. You can quit the tool either by pressing `Ctrl+D` or typing `quit`.
+
+## Useful Guides
+
+These are the online guides that I used while developing this project:
+
+1. [Using RPi Zero as a Keyboard](https://www.rmedgar.com/blog/using-rpi-zero-as-keyboard-setup-and-device-definition)
+2. [Setting up PlayStation Controllers on the Raspberry Pi](https://pimylifeup.com/raspberry-pi-playstation-controllers/) &mdash; Pairing your PS4 Controller via BluetoothCTL
+2. [BRAVIA REST API Specifications](https://pro-bravia.sony.net/develop/integrate/rest-api/spec/index.html)
+
