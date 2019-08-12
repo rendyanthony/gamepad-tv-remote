@@ -194,6 +194,7 @@ class Application(object):
 
             except Exception as e:
                 log.exception("Unexpected error")
+                break  # Stop the application and let systemd handle the restart
 
 
 def main():
