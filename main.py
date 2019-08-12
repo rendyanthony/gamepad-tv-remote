@@ -1,20 +1,15 @@
 #!/usr/bin/env python3
 
-# import time
 import signal
-import struct
 import threading
 import subprocess
 import sys
 import time
 import logging
 
-from datetime import datetime, timedelta
 from evdev import ecodes, categorize
-from functools import wraps
 
 from gamepad import get_gamepad_observer
-from gamepad.ds4 import Gamepad
 from keyboard import Keyboard
 from tasks import Tasks
 from tv.bravia import Bravia
