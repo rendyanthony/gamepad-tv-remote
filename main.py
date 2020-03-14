@@ -172,9 +172,10 @@ class Application(object):
                 try:
                     for event in self._gamepad.read():
                         self.process_event(event)
-                except OSError as e:
+                except OSError as err:
                     # There seems to be an error reading the gamepad
                     # assume it got disconnected
+                    log.warn("Failed to read from gamepad: {}".format(err))
                     self._gamepad_connected.clear()
                     continue
 
@@ -192,7 +193,7 @@ class Application(object):
 
                 side_tasks.do()
 
-            except Exception as e:
+            except Exception:
                 log.exception("Unexpected error")
                 break  # Stop the application and let systemd handle the restart
 
