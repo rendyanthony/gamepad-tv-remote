@@ -38,8 +38,12 @@ class Bravia(object):
         return result
 
     def get_power_status(self):
-        result = self._call("system", "getPowerStatus")[0]
-        return result["status"]
+        try:
+            result = self._call("system", "getPowerStatus")[0]
+            return result["status"]
+        except Exception as err:
+            log.warn("Failed to read power status: {0}".format(err))
+            return "unknown"
 
     def turn_on(self):
         self._call("system", "setPowerStatus", status=True)
