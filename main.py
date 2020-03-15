@@ -20,6 +20,7 @@ log.setLevel(logging.DEBUG)
 
 TV_URL = "http://192.168.1.2/sony"
 TV_AUTH_PSK = "1234"
+TV_MAX_VOLUME = "48"
 TIMEOUT_DURATION = 1800  # 30 minutes
 
 
@@ -63,7 +64,8 @@ class Application(object):
     def on_key_down(self, event):
         if self._gamepad.is_pressed(ecodes.BTN_TR2):
             if event.code == ecodes.BTN_DPAD_UP:
-                self._kbd.press(self._kbd.KEY_VOLUME_UP)
+                if self._tv.get_volume_information()['volume'] < TV_MAX_VOLUME:
+                    self._kbd.press(self._kbd.KEY_VOLUME_UP)
                 return
 
             elif event.code == ecodes.BTN_DPAD_DOWN:
@@ -95,6 +97,9 @@ class Application(object):
 
     def on_key_up(self, event):
         if self._gamepad.is_pressed(ecodes.BTN_TR2):
+            if event.code in (ecodes.BTN_NORTH,):
+                self._tv.send_ircc_command("ActionMenu")
+
             if event.code in (ecodes.BTN_WEST,):
                 self._kbd.press(media_key=self._kbd.KEY_MEDIA_MUTE)
 

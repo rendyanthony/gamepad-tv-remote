@@ -99,8 +99,8 @@ class Bravia(object):
         result = self._call("system", "getRemoteControllerInfo")
         return result
 
-    def get_volume_information(self):
-        result = self._call("audio", "getVolumeInformation")[0]
+    def get_volume_information(self, target="speaker"):
+        result = self._call("audio", "getVolumeInformation", target=target)[0][0]
         return result
 
     def get_application_list(self):
