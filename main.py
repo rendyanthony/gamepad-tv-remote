@@ -20,7 +20,7 @@ log.setLevel(logging.DEBUG)
 
 TV_URL = "http://192.168.1.2/sony"
 TV_AUTH_PSK = "1234"
-TV_MAX_VOLUME = "48"
+TV_MAX_VOLUME = 48
 TIMEOUT_DURATION = 1800  # 30 minutes
 
 
