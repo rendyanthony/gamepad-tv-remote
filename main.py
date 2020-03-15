@@ -204,7 +204,7 @@ class Application(object):
 def main():
     logging.basicConfig(
         stream=sys.stdout,
-        level=logging.DEBUG,
+        level=logging.INFO,
         format='%(levelname)5s %(name)s %(message)s')
     logging.getLogger('urllib3.connectionpool').setLevel(logging.INFO)
     logging.getLogger('tv.bravia').setLevel(logging.INFO)
