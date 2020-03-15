@@ -33,6 +33,8 @@ The default mapping is based on the Dualshock 4 controller.
 | Circle Button     | Escape                   | Android Back button       
 | Square Button     | Media Play/Pause         |                           
 | Triangle Button   | Backspace                |                           
+| L1                | Display Info             | Uses Bravia IRCC-IP                           
+| R2+Triangle       | Action Menu              | Uses Bravia IRCC-IP
 | R2+Up, R2+Down    | Volume up/down           |                           
 | R2+Left, R2+Right | Prev/Next Media          |                           
 | R2+Square         | Toggle Mute              |                           
@@ -119,5 +121,5 @@ These are the guides I used while developing this project:
 
 1. [Using RPi Zero as a Keyboard](https://www.rmedgar.com/blog/using-rpi-zero-as-keyboard-setup-and-device-definition)
 2. [Setting up PlayStation Controllers on the Raspberry Pi](https://pimylifeup.com/raspberry-pi-playstation-controllers/) &mdash; Pairing your PS4 Controller via BluetoothCTL
-2. [BRAVIA REST API Specifications](https://pro-bravia.sony.net/develop/integrate/rest-api/spec/index.html)
-
+3. [BRAVIA REST API Specifications](https://pro-bravia.sony.net/develop/integrate/rest-api/spec/index.html)
+4. [BRAVIA IRCC IP](https://pro-bravia.sony.net/develop/integrate/ircc-ip/overview/index.html)
