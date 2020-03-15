@@ -93,6 +93,9 @@ class Application(object):
         elif event.code in (ecodes.BTN_SOUTH,):
             self._kbd.press(self._kbd.KEY_RETURN)
 
+        elif event.code in (ecodes.BTN_START,):
+            self._kbd.press(self._kbd.KEY_RETURN, modifier=self._kbd.L_META)
+
     def on_key_up(self, event):
         if self._gamepad.is_pressed(ecodes.BTN_TR2):
             if event.code in (ecodes.BTN_NORTH,):
@@ -103,9 +106,6 @@ class Application(object):
 
         elif event.code in (ecodes.BTN_TL,):
             self._tv.send_ircc_command('Display')
-
-        elif event.code in (ecodes.BTN_START,):
-            self._kbd.press(self._kbd.KEY_RETURN, modifier=self._kbd.L_META)
 
         elif event.code in (ecodes.BTN_EAST,):
             self._kbd.press(self._kbd.KEY_ESC)
