@@ -63,7 +63,7 @@ class Application(object):
     def on_key_down(self, event):
         if self._gamepad.is_pressed(ecodes.BTN_TL2):
             if event.code == ecodes.BTN_DPAD_UP:
-                self.send_ircc_command("SubTitle")
+                self._tv.send_ircc_command("SubTitle")
                 return
 
         if self._gamepad.is_pressed(ecodes.BTN_TR2):
