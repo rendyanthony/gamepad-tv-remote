@@ -15,7 +15,7 @@ from tasks import Tasks
 from tv.bravia import Bravia
 
 log = logging.getLogger("main")
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 TV_URL = "http://192.168.1.2/sony"
