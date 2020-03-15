@@ -101,7 +101,7 @@ class Application(object):
             if event.code in (ecodes.BTN_WEST,):
                 self._kbd.press(media_key=self._kbd.KEY_MEDIA_MUTE)
 
-        elif event.code in (ecodes.BTN_TL1,):
+        elif event.code in (ecodes.BTN_TL,):
             self._tv.send_ircc_command('Display')
 
         elif event.code in (ecodes.BTN_START,):
