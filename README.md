@@ -22,21 +22,22 @@ Long press the PS button (4 seconds) to disconnect the controller. If you are us
 
 ### Key Mapping
 
-The default mapping is based on the Dualshock 4 controller.
+The default mapping is based on the Dualshock 4 controller/Bravia TV.
 
 | Gamepad Key       | Maps To                  | Remarks                   
 |-------------------|--------------------------|---------------------------
 | D-Pad             | Arrow Keys               |                           
-| Options/Start     | Alt+Enter                | Android Home button       
+| Options/Start     | Alt+Enter                | Android Home button
 | Share/Select      | -                        | Long press to lock/unlock 
 | X Button          | Enter                    |                           
 | Circle Button     | Escape                   | Android Back button       
 | Square Button     | Media Play/Pause         |                           
 | Triangle Button   | Backspace                |                           
-| L1                | Display Info             | Uses Bravia IRCC-IP                           
-| R2+Triangle       | Action Menu              | Uses Bravia IRCC-IP
+| L1                | Display Info             | Uses Bravia IRCC-IP
 | R2+Up, R2+Down    | Volume up/down           |                           
 | R2+Left, R2+Right | Prev/Next Media          |                           
+| R2+Triangle       | Action Menu              | Uses Bravia IRCC-IP
+| R2+Circle         | Subtitle                 | Uses Bravia IRCC-IP
 | R2+Square         | Toggle Mute              |                           
 | PS Button/Mode    | Turn TV on/off           | Uses Bravia REST API
 

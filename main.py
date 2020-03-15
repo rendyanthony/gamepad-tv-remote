@@ -61,11 +61,6 @@ class Application(object):
             self._gamepad = None
 
     def on_key_down(self, event):
-        if self._gamepad.is_pressed(ecodes.BTN_TL2):
-            if event.code == ecodes.BTN_DPAD_UP:
-                self._tv.send_ircc_command("SubTitle")
-                return
-
         if self._gamepad.is_pressed(ecodes.BTN_TR2):
             if event.code == ecodes.BTN_DPAD_UP:
                 self._kbd.press(self._kbd.KEY_VOLUME_UP)
@@ -105,6 +100,10 @@ class Application(object):
         if self._gamepad.is_pressed(ecodes.BTN_TR2):
             if event.code in (ecodes.BTN_NORTH,):
                 self._tv.send_ircc_command("ActionMenu")
+                return
+
+            if event.code in (ecodes.BTN_NORTH,):
+                self._tv.send_ircc_command("SubTitle")
                 return
 
             if event.code in (ecodes.BTN_WEST,):
